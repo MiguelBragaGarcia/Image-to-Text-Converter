@@ -1,12 +1,14 @@
 import path from 'path';
 import crypto from 'crypto';
 
-import multer, { StorageEngine } from 'multer';
+import multer, { StorageEngine, FileFilterCallback } from 'multer';
+import AppError from 'errors/AppError';
 
 interface IUploadConfig {
   tmpFolder: string;
   multer: {
     storage: StorageEngine;
+    fileFilter: FileFilterCallback;
   };
 }
 
@@ -24,5 +26,23 @@ export default {
         return callback(null, fileName);
       },
     }),
+
+    fileFilter: (request, file, callback) => {
+      const ext = path.extname(file.originalname);
+      if (
+        ext !== '.bmp' &&
+        ext !== '.jpg' &&
+        ext !== '.png' &&
+        ext !== '.pbm'
+      ) {
+        return callback(
+          new AppError(
+            'Only these image formats are supported. [PNG, BMP, JPG, PBM]',
+          ),
+        );
+      }
+
+      return callback(null, true);
+    },
   },
 } as IUploadConfig;
