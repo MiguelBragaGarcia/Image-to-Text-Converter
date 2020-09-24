@@ -7,6 +7,7 @@ import DiskStorageProvider from '../StorageProvider/implementations/DiskStorageP
 
 interface IRequest {
   filename: string;
+  language: string;
 }
 
 class ProcessImageService {
@@ -16,10 +17,10 @@ class ProcessImageService {
     this.diskStorageProvider = new DiskStorageProvider();
   }
 
-  public async execute({ filename }: IRequest): Promise<string[]> {
+  public async execute({ filename, language }: IRequest): Promise<string[]> {
     const image = path.resolve(__dirname, '..', '..', 'tmp', filename);
 
-    const response = await Tesseract.recognize(image, 'eng');
+    const response = await Tesseract.recognize(image, language);
 
     const phrases = convertoStringToPhrases(response.data.text);
 
