@@ -2,10 +2,10 @@
 Um backend simplificado de um conversor de imagem em texto.
 
 
-#Recursos da aplicação
-|Rota|Método HTTP|Parâmetros Body| Parâmetros Header |
-|-|-|-|-|-|
-|http://localhost:3333|POST|{image: Imagem , language: string}| Nenhum
+# Recursos da aplicação
+|Rota                 |Método HTTP|Parâmetros Body| Parâmetros Header |
+|---------------------|-----------|---------------|-------------------|
+|http://localhost:3333|POST       |{image: Imagem , language: string}| Nenhum
 
 # Como executar esse projeto
 Clone este repositório
