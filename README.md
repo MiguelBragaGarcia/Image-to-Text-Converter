@@ -9,6 +9,7 @@ Todos os dias milhares de pessoas necessitam extrair um texto de alguma imagem e
 
 
 Tenha instalado o [NODEJS](https://nodejs.org/en/)
+
 Tenha instalado o [YARN](https://yarnpkg.com/getting-started/install)
 
 
