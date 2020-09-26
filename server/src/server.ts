@@ -1,12 +1,15 @@
 import express, { NextFunction, Request, Response } from 'express';
 
 import routes from 'routes';
+
+import cors from 'cors';
 import 'express-async-errors';
 import { errors } from 'celebrate';
 import AppError from 'errors/AppError';
 
 const server = express();
 server.use(express.json());
+server.use(cors());
 
 server.use(routes);
 
