@@ -13,7 +13,6 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 const Select: React.FC<SelectProps> = ({ name, options, ...rest }) => {
   return (
     <Container>
-      {/* <label htmlFor={name}>{label}</label> */}
       <select value="" id={name} {...rest}>
         <option value="" disabled hidden>
           Selecione uma linguagem

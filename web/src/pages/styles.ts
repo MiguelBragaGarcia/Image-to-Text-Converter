@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface DropAreaProps {
+  error?: boolean;
+}
+
 export const Container = styled.div``;
 
 export const Header = styled.div`
@@ -17,10 +21,11 @@ export const HeaderContent = styled.div`
   position: absolute;
 
   button {
-    width: 80px;
-    height: 50px;
+    width: 100px;
+    height: 40px;
     position: relative;
-    left: calc(100% - 80px);
+    left: calc(100% - 100px);
+    top: calc(50% - 20px);
 
     border: 2px solid #fff;
     border-radius: 10px;
@@ -38,9 +43,10 @@ export const HeaderContent = styled.div`
   }
 `;
 export const Content = styled.div`
-  margin: 30px auto;
+  margin: auto;
+
   width: 1280px;
-  height: 500px;
+  height: calc(100vh - 60px);
   display: grid;
   grid-template-columns: 500px 280px 500px;
 
@@ -62,17 +68,22 @@ export const Content = styled.div`
   }
 `;
 
-export const DropArea = styled.div`
+export const DropArea = styled.div<DropAreaProps>`
   width: 500px;
-  height: 300px;
+  height: 260px;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #eee;
   cursor: pointer;
-  border: dashed 2px #333;
+  border: dashed 2px ${props => (props.error ? 'red' : '#333')};
   border-radius: 20px;
+
+  p {
+    color: ${props => (props.error ? 'red' : '#333')};
+  }
 `;
 
 export const Actions = styled.div`
