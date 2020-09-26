@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import Dropzone from 'react-dropzone';
 import { ImArrowRight } from 'react-icons/im';
-import Select from '../components/Select';
-import api from '../services/api';
+import Select from '../../components/Select';
+import api from '../../services/api';
 
 import {
   Container,
@@ -24,10 +24,10 @@ const Dashboard: React.FC = () => {
   const acceptedFiles = useCallback(
     async files => {
       if (files) {
-        const acceptedFilesExtension = /(\.bmp|\.jpg|\.png|\.pbm)$/i;
-        const pathFile = files[0].path;
+        const acceptedFilesExtensions = /(\.bmp|\.jpg|\.png|\.pbm)$/i;
+        const filePath = files[0].path;
 
-        if (!acceptedFilesExtension.exec(pathFile)) {
+        if (!acceptedFilesExtensions.exec(filePath)) {
           setFile(undefined);
           setError(true);
           return;
