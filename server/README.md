@@ -1,5 +1,5 @@
 # Conversor de imagem em texto
-Um backend simplificado de um conversor de imagem em texto.
+Um simples backend de uma aplicação de conversão de imagens em textos.
 
 
 # Recursos da aplicação
@@ -8,10 +8,6 @@ Um backend simplificado de um conversor de imagem em texto.
 |http://localhost:3333/process|POST       |{image: Imagem , language: string}| Nenhum
 
 # Como executar esse projeto
-Clone este repositório
-<pre>git clone https://github.com/MiguelBragaGarcia/Image-to-Text-Converter.git</pre>
-Instale todas as dendências do projeto
-<pre>yarn install</pre>
 
 Execute o sevidor
 <pre>yarn dev</pre>
